@@ -1,0 +1,10 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "keycloak-ai-skills",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "description": "Reusable AI skills for Keycloak workflows, starting with consistent skill authoring.",
+  "author": { "name": "lhanusov" },
+  "repository": "https://github.com/lhanusov/keycloak-ai-skills",
+  "keywords": ["keycloak", "skills"]
+}

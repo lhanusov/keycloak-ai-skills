@@ -1,0 +1,20 @@
+{
+  "name": "keycloak-skills",
+  "interface": {
+    "displayName": "Keycloak Skills"
+  },
+  "plugins": [
+    {
+      "name": "keycloak-ai-skills",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

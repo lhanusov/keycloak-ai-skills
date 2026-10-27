@@ -1,0 +1,10 @@
+{
+  "name": "keycloak-skills",
+  "owner": { "name": "lhanusov" },
+  "plugins": [
+    {
+      "name": "keycloak-ai-skills",
+      "source": "./"
+    }
+  ]
+}
