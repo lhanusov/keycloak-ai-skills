@@ -104,10 +104,15 @@ Keep shared metadata in `plugin.json` and instructions in `skills/`. The Codex c
 
 When releasing, keep the version identical in `plugin.json`, `.claude-plugin/plugin.json`, `gemini-extension.json`, and `bob-extension.json`, and update the version stated in this README. Keep shared descriptions consistent across these manifests. The marketplace catalogs reference the package and have no version field. Checks reject mismatched metadata and catalogs. There is no metadata generator.
 
+Common evidence, security-handling, and duplicate-search guidance is maintained in `shared/`. Edit those sources and run `python scripts/sync-shared.py --write` to refresh the checked-in references inside each consuming skill. Commit the source and copies together. Each skill remains installable on its own; consumers load only their local references. CI and release checks reject missing or stale copies. No synchronization is needed when installing or using a skill.
+
+Use the [offline scenarios and behavior checks](docs/skill-validation.md) when changing triage or review decisions; structural tests alone do not validate model behavior.
+
 With Python 3.10+:
 
 ```bash
 python -m pip install -r requirements-dev.txt
+python scripts/sync-shared.py
 python scripts/check-package.py
 python -m unittest discover -s tests -v
 ```
