@@ -37,7 +37,7 @@ class SharedTests(unittest.TestCase):
 
     def test_missing_source_is_reported(self):
         (self.root / "shared/evidence.md").unlink()
-        self.assertTrue(any("shared/evidence.md" in e for e in shared.sync(self.root, write=True)))
+        self.assertTrue(any(str(Path("shared/evidence.md")) in e for e in shared.sync(self.root, write=True)))
 
     def test_collection_has_current_copies(self):
         self.assertEqual(shared.sync(ROOT), [])
