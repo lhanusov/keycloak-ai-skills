@@ -2,7 +2,7 @@
 
 Read when a proposed action depends on resulting status/team labels, expiration, automatic bumping, or comment-trigger eligibility. Refresh the relevant sources; this historical evidence does not establish deployed behavior. The [public workflow](keycloak-workflow.md) governs routine decisions.
 
-Verified on 2026-11-03 against Keycloak commit `7c989e08081001aae3881e1bd8aadcb5550b5429`, bot commit `d0c61db5708153007868b5603204116b2dbf160f`, and the public label API. Deployed bot revision/configuration was not verified.
+Source baseline: Keycloak commit `7c989e08081001aae3881e1bd8aadcb5550b5429` and bot commit `d0c61db5708153007868b5603204116b2dbf160f`. Check current labels and deployed bot behavior before relying on these discrepancies.
 
 - **Missing-information label:** the guide says `status/missing-info`; the live inventory uses `status/missing-information`. The action is `action/missing-info`. Verify resulting status independently from the trigger name.
 - **Team bump:** the guide mentions `team/rh-iam`, absent from the retrieved live inventory. Use the current team map; do not manufacture an assignment to increase priority.

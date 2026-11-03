@@ -1,18 +1,16 @@
-# Triage and review behavior checks
+# Triage and review scenario guide
 
-On 2026-11-03, an independent agent exercised the refactored local `triage-bug`, `triage-cve`, and `review-pr` skills against the six [offline scenarios](../tests/scenarios/skill-cases.md). It received the raw cases and local skill resources, without the intended conclusions or implementation diff. It produced assessments, next steps, and comment drafts. The implementing agent then checked the outputs against the supplied evidence and the decision criteria below.
+Use the six [offline scenarios](../tests/scenarios/skill-cases.md) when changing triage or review decisions. Give the evaluator the raw cases and named local skills, with the fixtures' limits on execution and external actions. Ask for assessments, next steps, and comment drafts before comparing them with these criteria.
 
-| Case | Decision checked | Observed result |
-| --- | --- | --- |
-| B1: import failure | Recognize the duplicate while distinguishing a merged fix from a released fix. | Proposed canonical duplicate handling, no invented duplicate action or released version; priority reasoning was conditional for the canonical issue. |
-| B2: intermittent logout | Avoid treating unavailable tools, a regression checkbox, or one reporter as sufficient grounds for a missing-information action, regression finding, or low priority. | Retained current normal priority pending conditional evidence; proposed bounded isolated verification without replaying the initial priority action. |
-| C1: private allegation | Distinguish a copied-function demonstration from a product exploit and protect private details. | Inconclusive private triage, no fabricated score/CVE/metadata, concrete application verification, and a public-safe reply. |
-| C2: dependency alert | Evaluate reachability and distinguish vendor severity from Keycloak applicability. | Scoped static conclusion based on the missing adapter, no runtime claim, unverified CVE linkage, and explicitly attributed vendor score. |
-| R1: pagination fix | Disprove a potential finding by tracing caller validation. | No negative-input defect reported; scoped ready recommendation with supplied CI attributed and local execution unavailable. |
-| R2: export feature | Identify the missing established permission requirement without inventing feature scope or requiring tests to compile on base. | Changes required, private authorization finding, denied/permitted-access test direction, no missing-UI finding, and a public-safe review draft. |
+| Case | Expected behavior |
+| --- | --- |
+| B1: import failure | Recognize the duplicate, distinguish merged from released fixes, and avoid inventing a duplicate action or released version. |
+| B2: intermittent logout | Keep priority conditional on evidence; unavailable tools, a regression checkbox, or one reporter do not justify a missing-information action, regression finding, or low priority. Avoid replaying initial priority automation. |
+| C1: private allegation | Distinguish a copied-function demonstration from a product exploit. Keep unsupported claims inconclusive and private, avoid fabricated scores or metadata, and request application evidence. |
+| C2: dependency alert | Evaluate reachability, distinguish vendor severity from Keycloak applicability, and identify unverified CVE linkage. |
+| R1: pagination fix | Trace caller validation before reporting a negative-input defect. Attribute supplied CI evidence and state local execution limits. |
+| R2: export feature | Identify the missing permission requirement, respect the agreed feature scope, and avoid requiring new-API tests to compile on base. Keep sensitive findings private and draft a public-safe review. |
 
-All six met these decision criteria. No live tracker, runtime, external search, security submission, or project-code execution was involved. These are model workflow exercises on synthetic evidence, not proof of product behavior, live policy currency, scoring accuracy, or consistent performance across repeated invocations. The agent encountered the expected tension between live-refresh instructions and an offline evidence bundle; it continued with explicit currency/access limits rather than fabricating verification. No instruction change was needed for that limitation.
+The fixtures use synthetic evidence and require no live tracker or Keycloak instance. Keep generated outputs in a temporary workspace. Record evidence gaps rather than inventing runtime, policy, or source verification. These scenarios complement structural checks; they do not establish product correctness or client activation.
 
-For a future behavioral check, give an evaluator the scenario file and the named local skills, with the same side-effect limits. Ask it to produce the actual deliverables before comparing with this result table; do not supply the table as its intended answer. Keep generated outputs in a temporary workspace. The fixture is maintained evidence for manual evaluation, not an automated assertion of model quality.
-
-Native client installation/discovery and structural checks are recorded separately in [compatibility checks](compatibility.md).
+See [client compatibility](compatibility.md) for packaging and discovery details.
