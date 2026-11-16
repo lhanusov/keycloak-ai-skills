@@ -7,7 +7,8 @@ The instructions follow [Agent Skills](https://agentskills.io/specification), an
 | Location | Purpose |
 | --- | --- |
 | `skills/<name>/` | Skill entrypoint and self-contained resources |
-| `shared/` | Canonical evidence, security-handling, and duplicate-search guidance |
+| `shared/` | Canonical evidence, security-handling, duplicate-search, and optional Ripwire guidance |
+| `docs/releases/` | Versioned release notes |
 | `plugin.json` | Shared package metadata |
 | `.agents/plugins/marketplace.json` | Codex marketplace catalog |
 | `.claude-plugin/` | Claude and Copilot integration |
@@ -16,6 +17,20 @@ The instructions follow [Agent Skills](https://agentskills.io/specification), an
 | `tests/` | Structural tests and behavioral scenarios |
 
 For user setup and discovery, see [installation](docs/installation.md).
+
+## Agent instructions
+
+[AGENTS.md](AGENTS.md) is the shared entry point for agents maintaining this source repository.
+It routes authoring, updates, validation, and release work to the existing guidance.
+Codex and Bob can load it directly; [CLAUDE.md](CLAUDE.md) imports it for Claude Code.
+[Gemini project settings](.gemini/settings.json) select it through `context.fileName`.
+This avoids adding a root `GEMINI.md`, which Gemini would also load as [installed-extension context](https://geminicli.com/docs/extensions/reference/#gemini-extensionjson).
+
+[Copilot instructions](.github/copilot-instructions.md) are generated from `AGENTS.md` for Copilot features that use that filename.
+Edit `AGENTS.md` and run `python scripts/sync-shared.py --write`; CI checks for missing or stale copies.
+Paths in both instruction files are explicitly relative to the repository root.
+Keep [BOB.md](BOB.md) as the installed extension's skill router.
+These repository entry points are separate from the portable workflows packaged inside each skill.
 
 ## Add or change a skill
 
@@ -42,15 +57,16 @@ python -m unittest discover -s tests -v
 
 CI runs these checks on Linux and Windows with Python 3.10 and 3.14. Checks cover metadata, resource links, containment, shared-reference synchronization, and standalone relocation. The skill validator also checks naming, bounded YAML without aliases, and unfinished scaffold markers in UTF-8 resources outside `assets/`, up to 1 MiB per file. Structural validation does not prove client activation or good decisions.
 
-Use the [offline scenario guide](docs/skill-validation.md) when changing triage, implementation, or review decisions. Record actual execution and evidence gaps.
+Use the [offline scenario guide](docs/skill-validation.md) when changing authoring, triage, implementation, or review decisions. Record actual execution and evidence gaps.
 
 ## Release
 
 1. Set the same version in `plugin.json`, `.claude-plugin/plugin.json`, `gemini-extension.json`, and `bob-extension.json`. Keep their shared descriptions consistent and update the current-version sentence in `README.md`. Marketplace catalogs have no version field.
-2. Run validation, commit the changes, and push them to the default branch.
-3. Open **Actions → Release → Run workflow**, select the default branch, and enter the committed version as `X.Y.Z` without a `v` prefix.
+2. Prepare `docs/releases/X.Y.Z.md` with user-visible changes, validation evidence and known limitations. Keep links usable in both the repository and the GitHub release body; avoid relative links in these notes. Update the README release-note link.
+3. Run validation, commit the changes, and push them to the default branch.
+4. Open **Actions → Release → Run workflow**, select the default branch, and enter the committed version as `X.Y.Z` without a `v` prefix.
 
-The workflow verifies all four manifest versions and the README version, then runs the validation matrix. It archives the exact validated commit as `keycloak-ai-skills-X.Y.Z.tar.gz`, generates a `.tar.gz.sha256` checksum, and uploads both as workflow artifacts and GitHub Release assets. The archive contains the committed repository under `keycloak-ai-skills-X.Y.Z/`, including hidden client integrations. The release tags the same commit as `vX.Y.Z` and includes generated notes.
+The workflow verifies all four manifest versions and the README version, then runs the validation matrix. It archives the exact validated commit as `keycloak-ai-skills-X.Y.Z.tar.gz`, generates a `.tar.gz.sha256` checksum, and uploads both as workflow artifacts and GitHub Release assets. The archive contains the committed repository under `keycloak-ai-skills-X.Y.Z/`, including hidden client integrations. The release tags the same commit as `vX.Y.Z` and uses its versioned release notes when present, falling back to generated notes for versions without that file.
 
 The workflow uses the built-in `GITHUB_TOKEN`; no additional release secret is required. Repository rules must allow it to create release tags. The workflow must be present on the default branch to appear in the Actions menu.
 

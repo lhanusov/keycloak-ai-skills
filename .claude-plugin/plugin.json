@@ -1,6 +1,6 @@
 {
   "name": "keycloak-ai-skills",
-  "version": "0.4.1",
-  "description": "Reusable AI skills for Keycloak skill authoring, bug and security triage, fix implementation, and pull request review.",
+  "version": "0.5.0",
+  "description": "Reusable AI skills for Keycloak skill authoring and maintenance, bug and security triage, fixes and features, CI diagnosis, PR review and feedback, and backports.",
   "license": "Apache-2.0"
 }

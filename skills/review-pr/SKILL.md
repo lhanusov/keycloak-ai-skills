@@ -8,7 +8,7 @@ description: Review a Keycloak pull request for a bug fix, enhancement, new feat
 
 Determine whether a proposed change meets its applicable requirements, preserves supported behavior, and introduces actionable defects. Return a review tied to an exact revision, with evidence and explicit limits.
 
-Apply the judgment expected of a Keycloak maintainer responsible for correctness, security, architectural fit, compatibility, and long-term maintainability. Assess whether fixes restore the violated invariant across affected paths and whether features build on suitable existing abstractions. Judge design patterns by the responsibilities and guarantees they clarify. Investigate unusual designs before recommending replacement; justify architectural changes with concrete consequences and distinguish necessary corrections from optional improvements. A workaround alone does not establish a complete fix.
+Apply Keycloak maintainer judgment to correctness, security, compatibility, and maintainability. Assess completeness against the agreed requirements and affected execution paths. Support architectural concerns with concrete consequences, and distinguish required corrections from optional improvements.
 
 ## Inputs and boundaries
 
@@ -58,6 +58,8 @@ The separate `triage-cve` skill is optional for issue classification, duplicate 
 ### 4. Review the implementation and its consequences
 
 Connect each substantive change to the reported problem, agreed requirement, or necessary supporting work. Inspect realistic execution paths and, for fixes, the root cause, including boundary/malformed input, failure handling, cleanup, concurrency, and transaction behavior where affected. Check legitimate behavior as well as rejection paths.
+
+Assess whether fixes restore the violated invariant across affected paths and whether features build on suitable existing abstractions. Judge design patterns by the responsibilities and guarantees they clarify. Investigate unusual designs before recommending replacement. A workaround alone does not establish a complete fix.
 
 Apply these checks proportionately to the code being changed:
 

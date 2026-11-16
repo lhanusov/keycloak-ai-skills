@@ -1,39 +1,44 @@
-"""Check or refresh packaged copies of shared skill references (Python 3.10+)."""
+"""Check or refresh generated skill references and agent guidance (Python 3.10+)."""
 
 import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CONSUMERS = {
-    "evidence.md": ("triage-bug", "triage-cve", "review-pr", "fix-issue"),
-    "security-handling.md": ("triage-bug", "triage-cve", "review-pr", "fix-issue"),
+    "evidence.md": ("triage-bug", "triage-cve", "review-pr", "fix-issue", "backport-pr", "implement-feature", "diagnose-ci", "address-review"),
+    "security-handling.md": ("triage-bug", "triage-cve", "review-pr", "fix-issue", "backport-pr", "implement-feature", "diagnose-ci", "address-review"),
     "duplicate-search.md": ("triage-bug", "triage-cve"),
-    "ripwire.md": ("triage-bug", "triage-cve", "review-pr", "fix-issue"),
+    "ripwire.md": ("triage-bug", "triage-cve", "review-pr", "fix-issue", "implement-feature", "diagnose-ci", "address-review"),
 }
 
 
 def sync(root: Path, write: bool = False) -> list[str]:
     root = root.resolve()
     errors = []
-    for name, consumers in CONSUMERS.items():
-        source = root / "shared" / name
+    copies = {
+        Path("shared") / name: [Path("skills") / skill / "references" / name for skill in consumers]
+        for name, consumers in CONSUMERS.items()
+    }
+    copies[Path("AGENTS.md")] = [Path(".github/copilot-instructions.md")]
+    for relative, targets in copies.items():
+        source = root / relative
         try:
             if not source.resolve().is_relative_to(root):
-                raise ValueError("shared source resolves outside the repository")
+                raise ValueError("source resolves outside the repository")
             content = source.read_bytes()
         except (OSError, ValueError, RuntimeError) as exc:
             errors.append(f"{source.relative_to(root)}: {exc}")
             continue
-        expected = (f"<!-- Generated from shared/{name}; edit the source and run "
+        expected = (f"<!-- Generated from {relative.as_posix()}; edit the source and run "
                     "python scripts/sync-shared.py --write. -->\n\n").encode() + content
-        for skill in consumers:
-            target = root / "skills" / skill / "references" / name
+        for target_path in targets:
+            target = root / target_path
             try:
                 if not target.resolve().is_relative_to(root):
-                    raise ValueError("packaged reference resolves outside the repository")
-                # Refuse symlinks: every skill must carry its own portable copy.
+                    raise ValueError("generated copy resolves outside the repository")
+                # Generated files must carry their own portable content.
                 if target.is_symlink() or target.parent.is_symlink():
-                    raise ValueError("packaged reference must not be a symlink")
+                    raise ValueError("generated copy must not be a symlink")
                 if write:
                     target.parent.mkdir(parents=True, exist_ok=True)
                     target.write_bytes(expected)
@@ -53,7 +58,7 @@ def main() -> int:
     for error in errors:
         print(f"FAIL: {error}")
     if not errors:
-        print("PASS: shared references " + ("synchronized" if args.write else "match packaged copies"))
+        print("PASS: generated guidance " + ("synchronized" if args.write else "matches sources"))
     return int(bool(errors))
 
 

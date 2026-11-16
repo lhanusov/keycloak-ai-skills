@@ -1,6 +1,6 @@
 # Keycloak AI Skills
 
-AI skills to investigate Keycloak issues, assess security reports, implement fixes, and review pull requests. The current package version is `0.4.1`.
+AI skills to investigate Keycloak issues and CI failures, assess security reports, implement fixes and features, review PRs and address feedback, backport changes, and maintain skill guidance. The current package version is `0.5.0`.
 
 ## Quick start
 
@@ -122,16 +122,23 @@ For other supported clients, ask `Use review-pr to review <pr-url>.` Replace `re
 | --- | --- | --- |
 | Investigate a bug | [triage-bug](skills/triage-bug/SKILL.md) | `Use triage-bug to assess <issue-url>.` |
 | Assess security impact | [triage-cve](skills/triage-cve/SKILL.md) | `Use triage-cve to assess <report>.` |
+| Diagnose CI | [diagnose-ci](skills/diagnose-ci/SKILL.md) | `Use diagnose-ci to investigate the failed checks on <pr-url>.` |
 | Implement a fix | [fix-issue](skills/fix-issue/SKILL.md) | `Use fix-issue to fix <issue-url> in <checkout>.` |
+| Implement a feature | [implement-feature](skills/implement-feature/SKILL.md) | `Use implement-feature to implement <feature-or-design> in <checkout> on <branch>.` |
+| Backport a merged PR | [backport-pr](skills/backport-pr/SKILL.md) | `Use backport-pr to backport <pr-url> to 26.4 and 26.6 in <checkout> and create the PRs.` |
 | Review a change | [review-pr](skills/review-pr/SKILL.md) | `Use review-pr to review <pr-url>.` |
+| Address review feedback | [address-review](skills/address-review/SKILL.md) | `Use address-review to address feedback on <pr-url> in <checkout>, validate changes, and draft replies.` |
 | Create a skill | [add-skill](skills/add-skill/SKILL.md) | `Use add-skill to create a skill for <task>.` |
+| Refresh skill references | [update-skill](skills/update-skill/SKILL.md) | `Use update-skill to check references in <skill-path> and apply relevant updates.` |
 
-Triage and review produce drafts; `fix-issue` edits your checkout and runs checks. Posting, publishing, and changes to live systems require your authorization.
+Triage and `review-pr` produce drafts. `diagnose-ci` investigates by default and implements a correction when requested. `fix-issue`, `implement-feature` and `address-review` include scoped local changes and validation. `backport-pr` uses isolated worktrees and the repository script; a request to create backport PRs includes the necessary commits, pushes and PR creation for the specified destinations. CI reruns, posted replies, thread resolution and other publication or live-system changes follow your requested and previously authorized scope.
 
 ## Further documentation
 
 - [Installation and manual downloads](docs/installation.md)
 - [More examples and review modes](docs/usage.md)
+- [Release notes for 0.5.0](docs/releases/0.5.0.md)
+- [Agent guidance for contributors](AGENTS.md)
 - [Contributing, validation, and releases](CONTRIBUTING.md)
 
 ## License
