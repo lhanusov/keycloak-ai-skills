@@ -5,6 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CONSUMERS = {
+    "github-cli.md": ("triage-bug", "triage-cve", "review-pr", "fix-issue", "backport-pr", "implement-feature", "diagnose-ci", "address-review", "add-skill", "update-skill"),
     "evidence.md": ("triage-bug", "triage-cve", "review-pr", "fix-issue", "backport-pr", "implement-feature", "diagnose-ci", "address-review"),
     "security-handling.md": ("triage-bug", "triage-cve", "review-pr", "fix-issue", "backport-pr", "implement-feature", "diagnose-ci", "address-review"),
     "duplicate-search.md": ("triage-bug", "triage-cve"),

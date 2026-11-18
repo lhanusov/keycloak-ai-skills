@@ -25,6 +25,7 @@ Reuse an existing source record; do not invent an earlier snapshot or expand a f
 ## Check the evidence and applicability
 
 Read authoritative sources through available repository tools, documentation access, or browsing.
+For GitHub sources or actions, use GitHub CLI (`gh`) by default and read [GitHub CLI guidance](references/github-cli.md) for commands, revision context, pagination and access fallbacks. Use the appropriate source-access tools for other sites.
 Inspect the relevant content, not just an HTTP status, search snippet, or page timestamp.
 For a moved link, verify the destination's publisher, topic, and applicable version before replacing it.
 For command examples, compare the intended tool version's documentation or available local help; distinguish syntax checks from actual command execution.

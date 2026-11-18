@@ -18,6 +18,8 @@ Read [evidence and verification](references/evidence.md). For confidential sourc
 
 ## Establish the source and script
 
+Use GitHub CLI (`gh`) by default for GitHub data and actions; read [GitHub CLI guidance](references/github-cli.md) for explicit repository context, PR retrieval, authorized publication and access fallbacks. A read-only fallback does not replace the repository script's `gh` dependency or establish that publication succeeded.
+
 Read the target repository's instructions, contribution/backport guidance, and current `.github/scripts/pr-backport.sh`. Establish the applicable draft state, commit/sign-off requirements and checks before publication; explicit session instructions take precedence over repository guidance. Read [script execution and recovery](references/script-workflow.md) before invoking it and resolve conflicts between its automatic steps and those requirements. Record its revision/path and actual behavior; the reference describes an inspected baseline, not a permanent script API. Dependencies are Git with worktree support, Bash, GitHub CLI, jq, repository access, and the target's build tools.
 
 Verify the source repository, merged state and exact `mergeCommit.oid`, then inspect that commit and its intended contract. Preserve its message and the script's `-x` source trailer; the generated backport SHA will differ. Check that the commit object is available and its parent shape is supported by the current script. A PR head, an unmerged PR, or an assumed mainline parent is not a substitute.

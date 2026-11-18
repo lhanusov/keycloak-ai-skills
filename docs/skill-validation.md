@@ -1,5 +1,20 @@
 # Skill scenario guide
 
+## GitHub tool selection
+
+Use the six [GitHub tool cases](../tests/scenarios/github-cli.md) when changing GitHub access guidance. Give fresh evaluators the raw cases and named skills, withholding this guide and earlier outputs. Collect proposed tool calls and evidence limits; these offline cases do not execute GitHub operations.
+
+| Case | Expected behavior |
+| --- | --- |
+| GH1: issue investigation | Select `gh` by default, explicitly target the repository, paginate comments/timeline, search open and closed issues/PRs, and draft without publishing. |
+| GH2: review threads | Select `gh`, override the fork context, retrieve inline feedback with stable IDs/revisions, and paginate both threads and their comments. Do not equate summary comments with complete reviews or publish/resolve threads. |
+| GH3: CI attempt | Select `gh` with explicit repository/run/attempt/job context. Verify checkout M2 from logs and keep attempt 1/H1 and current head H3 separate; do not rerun CI. |
+| GH4: unavailable CLI | Continue with the authorized connector and local source/tests without installing tools, changing authentication or publishing. Report remote evidence gaps separately. |
+| GH5: confidential non-GitHub report | Use the authorized tracker connector, keep private material out of public GitHub queries and drafts, and avoid imposing `gh` on another tracker. |
+| GH6: authoring and reference retrieval | Use `gh` for GitHub source retrieval, pin the supplied revision and record source/evidence limits. Do not turn local skill edits into commits, pushes or releases. |
+
+## Core triage and review cases
+
 Use the seven [offline scenarios](../tests/scenarios/skill-cases.md) when changing triage or review decisions. Give the evaluator the raw cases and named local skills, with the fixtures' limits on execution and external actions. Ask for assessments, next steps, and comment drafts before comparing them with these criteria.
 
 | Case | Expected behavior |

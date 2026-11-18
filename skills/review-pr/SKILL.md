@@ -14,7 +14,7 @@ Apply Keycloak maintainer judgment to correctness, security, compatibility, and 
 
 Accept a PR URL or repository-qualified number, or a supplied diff with base/head revisions and issue/design context. Resolve a bare number from the user's repository context. Optional inputs include the mode (`bug`, `feature`, `hardening`, or `vulnerability`), design proposal and acceptance criteria, advisory or private report, distribution/version, deployment configuration, reproducer, and intended audience. Treat “enhancement” and “new feature” as feature review, “weakness” as hardening, and “CVE fix” as vulnerability review, without assuming that the labels establish exploitability.
 
-Use available repository/tracker tools, local code, and authoritative documentation; no particular client is required. Read [evidence and verification](references/evidence.md) for provenance, safe verification, and handling access gaps. Ask for missing information only when it materially prevents a reliable review.
+Use GitHub CLI (`gh`) by default for GitHub data and actions; read [GitHub CLI guidance](references/github-cli.md) for commands, pagination and access fallbacks. Use local code, authorized clients for other trackers and authoritative documentation as needed. Read [evidence and verification](references/evidence.md) for provenance, safe verification, and handling access gaps. Ask for missing information only when it materially prevents a reliable review.
 
 Review drafts do not authorize implementing fixes, posting comments/reviews or security reports, changing metadata, creating issues, committing, pushing, or merging. Honor explicit authorization already given for the action and destination.
 
