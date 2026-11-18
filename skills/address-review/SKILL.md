@@ -10,6 +10,8 @@ Resolve the substance of review feedback against the current implementation and 
 
 ## Establish the scope and current state
 
+Use GitHub CLI (`gh`) by default for GitHub data and actions; read [GitHub CLI guidance](references/github-cli.md) for PR/review retrieval, complete thread pagination, authorized replies and access fallbacks.
+
 Accept a PR URL or supplied feedback and a target checkout. Resolve repository, branch, current head, base, requirements and authorization from the conversation and available sources. Read applicable repository instructions and contribution/test guidance. Read [evidence and verification](references/evidence.md), and [security handling](references/security-handling.md) for confidential material or security concerns.
 
 A request to address feedback includes justified local corrections and validation. Honor narrower assessment-only or reply-draft-only requests. Commits, pushes, posted replies and thread resolution follow their separately requested or previously authorized scope; drafting a reply does not post it. Do not infer permission to merge, rewrite published history, contact others or operate live systems. Authoring/evaluating this skill authorizes no real PR corrections or publication.

@@ -10,6 +10,8 @@ Deliver the requested capability through the relevant Keycloak interfaces, with 
 
 ## Establish scope and evidence
 
+Use GitHub CLI (`gh`) by default for GitHub data and actions; read [GitHub CLI guidance](references/github-cli.md) when retrieving issues, designs, PRs or repository evidence, or performing authorized publication. It covers commands, pagination and access fallbacks.
+
 Accept an issue, design or description; identify the target checkout and revision, intended users, acceptance criteria, exclusions and relevant deployment constraints. Resolve available details from the conversation and repository before asking. Read applicable repository instructions and contribution guidance. Record the starting revision and working-tree state, then read [evidence and verification](references/evidence.md).
 
 For an existing bug, hardening or vulnerability alone, `fix-issue` is the more specific workflow. A mixed request can implement the feature and correct its underlying defect together: keep acceptance and regression evidence distinct. Honor assessment-only and review-only requests without implementation; do not turn an existing PR review or merged-PR backport into new feature development. Other skills are not runtime prerequisites, and ordinary feature work requires no CVE scoring, triage labels or cherry-picking.

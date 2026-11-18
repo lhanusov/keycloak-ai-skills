@@ -14,7 +14,7 @@ Apply the judgment expected of a Keycloak security response engineer responsible
 
 Accept an issue URL, a tracker-qualified ID, or pasted issue text. Resolve a bare issue number from the user's repository context; ask for the tracker or repository if ambiguous. Optional inputs include the affected version, deployment configuration, source checkout, reproducer, intended comment audience, and required CVSS version.
 
-Use available tracker connectors, repository search, and web access; no particular client is required. Read [evidence and verification](references/evidence.md) and [security handling](references/security-handling.md) for provenance, safe reproduction, confidentiality, and policy checks.
+Use GitHub CLI (`gh`) by default for GitHub data and actions; read [GitHub CLI guidance](references/github-cli.md) for commands, pagination and access fallbacks. Use authorized clients for other trackers, repository search and authoritative documentation as needed. Read [evidence and verification](references/evidence.md) and [security handling](references/security-handling.md) for provenance, safe reproduction, confidentiality, and policy checks.
 
 For questions about general triage practice or gaps in project guidance, read [triage guidance and applicability](references/triage-guidance.md). Apply the current project policy and applicable upstream or downstream process; use general guidance to fill gaps, without importing another organization's routing, deadlines, or disclosure rules. Record material conflicts instead of silently choosing a rule.
 

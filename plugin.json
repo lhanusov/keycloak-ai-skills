@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "keycloak-ai-skills",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "license": "Apache-2.0",
   "description": "Reusable AI skills for Keycloak skill authoring and maintenance, bug and security triage, fixes and features, CI diagnosis, PR review and feedback, and backports.",
   "author": { "name": "lhanusov" },

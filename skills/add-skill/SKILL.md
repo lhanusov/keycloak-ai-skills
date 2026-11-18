@@ -12,6 +12,8 @@ Create or revise a focused Agent Skill using the user's scope and target project
 
 Identify the task, inputs, expected result, and required tools from the conversation and project files. Preserve unrelated work, check existing skills for overlap, and ask only for missing details that affect the result.
 
+When the task needs GitHub sources or actions, use GitHub CLI (`gh`) by default and read [GitHub CLI guidance](references/github-cli.md) for commands, revision context, pagination and access fallbacks. Local-only authoring needs no GitHub access.
+
 | Request | Procedure |
 | --- | --- |
 | Editorial edit preserving meaning, activation, references and workflow | Make the narrow correction and inspect the diff and affected links. Skip scaffolding and behavioral trials. |

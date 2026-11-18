@@ -14,7 +14,7 @@ Apply the judgment expected of a Keycloak maintainer responsible for accurate pr
 
 Accept an issue URL, repository-qualified number, or pasted text. Resolve a bare number from repository context; ask when ambiguous. Optional context includes distribution, affected versions, environment, checkout, reproducer, and audience. Recover relevant details from available sources before asking for more.
 
-Use available GitHub connectors, GitHub CLI (`gh`), web access, and local repository tools; prefer a suitable connector unless the user requests another tool. Read [CLI examples](references/github-cli.md) when using `gh`. Read [evidence and verification](references/evidence.md) for provenance, safe reproduction, and handling access gaps.
+Use GitHub CLI (`gh`) by default for GitHub data and actions; read [GitHub CLI guidance](references/github-cli.md) for commands, pagination and access fallbacks. Use local repository tools and authoritative documentation as needed. Read [evidence and verification](references/evidence.md) for provenance, safe reproduction, and handling access gaps.
 
 Read [Keycloak's public workflow](references/keycloak-workflow.md) and refresh relevant project sources before selecting actions. It contains the verification and priority mappings; read its linked automation notes only when the proposed action depends on them. For general practice or policy gaps, consult [guidance and relevance](references/triage-guidance.md). External recommendations do not replace project rules or introduce vendor SLAs.
 
