@@ -1,7 +1,7 @@
 ---
 name: add-skill
 license: Apache-2.0
-description: Create a reusable AI skill from a task description or repeated workflow using the Agent Skills format. Use when asked to add or scaffold a skill, including for the Keycloak AI skills collection.
+description: Create a portable Agent Skill or revise an existing skill’s workflow, decision rules, or reference loading.
 ---
 
 # Add a skill

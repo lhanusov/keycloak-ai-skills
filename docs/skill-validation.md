@@ -135,6 +135,8 @@ Use the seven [address-review cases](../tests/scenarios/address-review.md) with 
 
 ## Skill authoring
 
+For changes to authoring or reference-refresh descriptions, run the [discovery prompts](../tests/scenarios/skill-discovery.md) with the catalog metadata alone. Expect `add-skill` for the workflow revision and `update-skill` for the upstream policy change. Give the evaluator the prompts separately from this guide.
+
 Use the five [add-skill scenarios](../tests/scenarios/add-skill.md) when changing the authoring workflow.
 Give an independent evaluator the raw cases and the selected `add-skill` revision, keeping this answer guide and prior outputs separate.
 Compare the baseline and candidate decisions under the same conditions.

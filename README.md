@@ -128,7 +128,7 @@ For other supported clients, ask `Use review-pr to review <pr-url>.` Replace `re
 | Backport a merged PR | [backport-pr](skills/backport-pr/SKILL.md) | `Use backport-pr to backport <pr-url> to 26.4 and 26.6 in <checkout> and create the PRs.` |
 | Review a change | [review-pr](skills/review-pr/SKILL.md) | `Use review-pr to review <pr-url>.` |
 | Address review feedback | [address-review](skills/address-review/SKILL.md) | `Use address-review to address feedback on <pr-url> in <checkout>, validate changes, and draft replies.` |
-| Create a skill | [add-skill](skills/add-skill/SKILL.md) | `Use add-skill to create a skill for <task>.` |
+| Create a skill or revise its workflow | [add-skill](skills/add-skill/SKILL.md) | `Use add-skill to revise when <skill> loads its report template.` |
 | Refresh skill references | [update-skill](skills/update-skill/SKILL.md) | `Use update-skill to check references in <skill-path> and apply relevant updates.` |
 
 Triage and `review-pr` produce drafts. `diagnose-ci` investigates by default and implements a correction when requested. `fix-issue`, `implement-feature` and `address-review` include scoped local changes and validation. `backport-pr` uses isolated worktrees and the repository script; a request to create backport PRs includes the necessary commits, pushes and PR creation for the specified destinations. CI reruns, posted replies, thread resolution and other publication or live-system changes follow your requested and previously authorized scope.
