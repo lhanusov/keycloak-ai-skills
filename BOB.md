@@ -1,6 +1,6 @@
 # Keycloak AI Skills
 
-When asked to create or scaffold a reusable skill, read [add-skill](skills/add-skill/SKILL.md) and follow its instructions. Resolve that path and its supporting resources from this installed extension directory, not the user's project. Load the skill only when it applies to the request.
+When asked to create a skill or revise an existing skill’s workflow, decision rules, or reference loading, follow [add-skill](skills/add-skill/SKILL.md). Resolve its resources from this installed extension directory.
 
 When asked to check or refresh existing skill guidance against changed references, read [update-skill](skills/update-skill/SKILL.md) and follow its instructions.
 Resolve its resources from this installed extension directory and identify the maintained source checkout to assess or edit.

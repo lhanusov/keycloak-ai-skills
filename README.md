@@ -1,6 +1,6 @@
 # Keycloak AI Skills
 
-AI skills to investigate Keycloak issues and CI failures, assess security reports, implement fixes and features, review PRs and address feedback, backport changes, and maintain skill guidance. The current package version is `0.5.1`.
+AI skills to investigate Keycloak issues and CI failures, assess security reports, implement fixes and features, review PRs and address feedback, backport changes, and maintain skill guidance. The current package version is `0.5.2`.
 
 ## Quick start
 
@@ -128,7 +128,7 @@ For other supported clients, ask `Use review-pr to review <pr-url>.` Replace `re
 | Backport a merged PR | [backport-pr](skills/backport-pr/SKILL.md) | `Use backport-pr to backport <pr-url> to 26.4 and 26.6 in <checkout> and create the PRs.` |
 | Review a change | [review-pr](skills/review-pr/SKILL.md) | `Use review-pr to review <pr-url>.` |
 | Address review feedback | [address-review](skills/address-review/SKILL.md) | `Use address-review to address feedback on <pr-url> in <checkout>, validate changes, and draft replies.` |
-| Create a skill | [add-skill](skills/add-skill/SKILL.md) | `Use add-skill to create a skill for <task>.` |
+| Create a skill or revise its workflow | [add-skill](skills/add-skill/SKILL.md) | `Use add-skill to revise when <skill> loads its report template.` |
 | Refresh skill references | [update-skill](skills/update-skill/SKILL.md) | `Use update-skill to check references in <skill-path> and apply relevant updates.` |
 
 Triage and `review-pr` produce drafts. `diagnose-ci` investigates by default and implements a correction when requested. `fix-issue`, `implement-feature` and `address-review` include scoped local changes and validation. `backport-pr` uses isolated worktrees and the repository script; a request to create backport PRs includes the necessary commits, pushes and PR creation for the specified destinations. CI reruns, posted replies, thread resolution and other publication or live-system changes follow your requested and previously authorized scope.
@@ -137,7 +137,7 @@ Triage and `review-pr` produce drafts. `diagnose-ci` investigates by default and
 
 - [Installation and manual downloads](docs/installation.md)
 - [More examples and review modes](docs/usage.md)
-- [Release notes for 0.5.1](docs/releases/0.5.1.md)
+- [Release notes for 0.5.2](docs/releases/0.5.2.md)
 - [Agent guidance for contributors](AGENTS.md)
 - [Contributing, validation, and releases](CONTRIBUTING.md)
 

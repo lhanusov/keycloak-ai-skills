@@ -8,7 +8,7 @@ Use the six [GitHub tool cases](../tests/scenarios/github-cli.md) when changing 
 | --- | --- |
 | GH1: issue investigation | Select `gh` by default, explicitly target the repository, paginate comments/timeline, search open and closed issues/PRs, and draft without publishing. |
 | GH2: review threads | Select `gh`, override the fork context, retrieve inline feedback with stable IDs/revisions, and paginate both threads and their comments. Do not equate summary comments with complete reviews or publish/resolve threads. |
-| GH3: CI attempt | Select `gh` with explicit repository/run/attempt/job context. Verify checkout M2 from logs and keep attempt 1/H1 and current head H3 separate; do not rerun CI. |
+| GH3: CI attempt | List the jobs for the fixture’s workflow run (ID `812`), attempt `2`. Confirm that job `813` appears in that list before fetching its log. GitHub CLI derives the run from the job ID, so this check ties the log to the requested attempt. Verify that the log shows checkout `M2` and attribute that evidence to attempt 2. Keep it separate from attempt 1’s `H1` and the current PR head `H3`. Leave CI untouched. |
 | GH4: unavailable CLI | Continue with the authorized connector and local source/tests without installing tools, changing authentication or publishing. Report remote evidence gaps separately. |
 | GH5: confidential non-GitHub report | Use the authorized tracker connector, keep private material out of public GitHub queries and drafts, and avoid imposing `gh` on another tracker. |
 | GH6: authoring and reference retrieval | Use `gh` for GitHub source retrieval, pin the supplied revision and record source/evidence limits. Do not turn local skill edits into commits, pushes or releases. |
@@ -134,6 +134,8 @@ Use the seven [address-review cases](../tests/scenarios/address-review.md) with 
 | AR7: uncertain reply | Reuse the matching reply and existing published head, resolve only the authorized satisfied thread, and verify state without duplicate replies/pushes. Keep thread and comment identifiers distinct. |
 
 ## Skill authoring
+
+For changes to authoring or reference-refresh descriptions, run the [discovery prompts](../tests/scenarios/skill-discovery.md) with the catalog metadata alone. Expect `add-skill` for the workflow revision and `update-skill` for the upstream policy change. Give the evaluator the prompts separately from this guide.
 
 Use the five [add-skill scenarios](../tests/scenarios/add-skill.md) when changing the authoring workflow.
 Give an independent evaluator the raw cases and the selected `add-skill` revision, keeping this answer guide and prior outputs separate.
