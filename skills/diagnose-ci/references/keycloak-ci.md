@@ -10,14 +10,7 @@ Record relevant JDK, OS, database, browser, feature flags, distribution and envi
 
 The [GitHub event reference](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request) explains PR merge refs; [rerun documentation](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/re-run-workflows-and-jobs) describes original-event ref/SHA reuse. Verify actual checkout and artifact provenance in the target workflow. For missing or pending requirements, consult [required-check troubleshooting](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks) as applicable; a skipped workflow and a skipped job need not have the same effect.
 
-For GitHub CLI, inspect available help and use explicit context. A focused read can use:
-
-```bash
-gh run view "$run_id" --repo "$repository" --attempt "$attempt" --json headSha,event,attempt,jobs,url
-gh run view --repo "$repository" --job "$job_id" --log
-```
-
-IDs must come from the selected run/attempt. CLI log association can be incomplete, including unknown step names; preserve that limitation or retrieve the exact job through the supported API. Read-only retrieval examples do not authorize a rerun. Avoid downloading every job's artifacts when one failure group and its prerequisites answer the question.
+For attempt-specific job selection and log commands, see [CI runs and logs](github-cli.md#ci-runs-and-logs). Record unknown step names if they limit attribution. Retrieve artifacts for the failure group and its prerequisites.
 
 ## Reports and retries
 

@@ -47,11 +47,11 @@ A PR summary or `gh pr view --comments` is not a complete inline-thread record. 
 ```bash
 gh run view "$run_id" --repo keycloak/keycloak --attempt "$attempt" \
   --json headSha,event,attempt,jobs,url
-gh run view "$run_id" --repo keycloak/keycloak --attempt "$attempt" \
-  --job "$job_id" --log
+# Select job_id from jobs[].databaseId in the response for this attempt.
+gh run view --repo keycloak/keycloak --attempt "$attempt" --job "$job_id" --log
 ```
 
-Take job IDs from the selected run/attempt. Inspect actual checkout and artifact provenance in logs/workflow source; the event SHA may differ from the tested checkout or current PR head. If CLI log association is incomplete, retrieve the exact job through `gh api` using its verified ID. Retrieve only relevant artifacts/reports and preserve run/attempt/revision context. Access errors, expired artifacts and missing logs are evidence gaps, not successful tests or absent failures. A read-only diagnosis does not authorize `gh run rerun` or workflow dispatch.
+If a supplied job ID is missing from the selected attempt, resolve the mismatch before attributing its logs. With `--job`, gh derives the run from the job ID. Inspect actual checkout and artifact provenance in logs/workflow source; the event SHA may differ from the tested checkout or current PR head. If CLI log association is incomplete, retrieve the exact job through `gh api` using its verified ID. Retrieve only relevant artifacts/reports and preserve run/attempt/revision context. Access errors, expired artifacts and missing logs are evidence gaps, not successful tests or absent failures. A read-only diagnosis does not authorize `gh run rerun` or workflow dispatch.
 
 ## Repository sources and metadata
 
