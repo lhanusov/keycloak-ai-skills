@@ -81,7 +81,9 @@ Run focused checks appropriate to the change; inspect CI results and skipped job
 
 Before reporting a defect, actively try to disprove it: trace the complete relevant path, look for guards and counterexamples, and verify its prerequisites. Establish the trigger, expected versus actual behavior, impact, and supporting evidence. Distinguish observed facts, code-based deductions, and assumptions; execution is stronger evidence but is not mandatory for a sound, complete code-based finding.
 
-Classify each concern as introduced/exposed by the PR, an incomplete fix, an unmet established feature requirement, or unrelated and pre-existing. Keep the last category separate from merge-blocking findings. Cite the requirement and demonstrate the gap before calling a feature incomplete; unclear scope belongs under open questions. Drop disproven concerns and deduplicate by root cause/remedy. Test gaps and policy gaps are not themselves proof of a runtime defect.
+For each proposed finding, state the applicable requirement or invariant it violates, identify its source, and explain how evidence from the reviewed revision demonstrates the violation. Cite the relevant code or diff location, test result, or CI job tied to that revision. When a SHA is unavailable, cite an identifiable location in the supplied patch or snapshot and state the revision limit. Use older-revision evidence as context and verify the claim on the reviewed revision. If the requirement, its applicability, or the evidence for the violation remains unresolved, record a material concern as an open question or validation gap.
+
+Classify each concern as introduced/exposed by the PR, an incomplete fix, an unmet established feature requirement, or unrelated and pre-existing. Keep the last category separate from merge-blocking findings. Drop disproven concerns and deduplicate by root cause/remedy. Test gaps and policy gaps are not themselves proof of a runtime defect.
 
 ### 6. Deliver the review
 
@@ -91,7 +93,7 @@ Separate confirmed defects, unanswered questions, test/validation gaps, reposito
 
 State whether the change meets its applicable requirements and, for fixes, whether the original problem appears fully fixed. Report what was actually validated, coverage limits, and a recommendation of `ready`, `changes required`, or `insufficient evidence`, with reasons. Separate technical readiness from unresolved product/design acceptance; do not invent maintainer approval. Recommend readiness only when the evidence is adequate; missing execution alone is not an automatic blocker for every change. This is a recommendation, not a submitted approval.
 
-End with a concise proposed review comment matching the intended audience. For sensitive findings or uncertain disclosure status, apply [security handling](references/security-handling.md).
+End with a concise proposed review comment matching the intended audience. Include the violated requirement and reviewed-revision evidence for every finding raised in the draft. For sensitive findings or uncertain disclosure status, apply [security handling](references/security-handling.md).
 
 ## Completion
 

@@ -15,9 +15,9 @@
 
 - Location: {{file and smallest useful line range at the reviewed revision; permalink when available}}
 - Relationship to PR: {{introduced/exposed defect, incomplete fix, or unmet established feature requirement; connection to changed code}}
-- Trigger and behavior: {{inputs/prerequisites; expected versus actual behavior}}
+- Trigger and behavior: {{inputs/prerequisites; applicable requirement or invariant and its source; actual behavior that violates it}}
 - Impact: {{concrete consequence and severity rationale}}
-- Evidence and confidence: {{test result or complete code-path argument; counterevidence, assumptions, and uncertainty}}
+- Evidence and confidence: {{cited test result or complete code-path argument from the reviewed revision or supplied patch; how it demonstrates the violation; counterevidence, assumptions, and uncertainty}}
 - Correction and coverage: {{minimal correction direction and meaningful regression test}}
 
 {{Repeat only for distinct findings. Keep unrelated pre-existing issues separate.}}
@@ -69,4 +69,4 @@
 
 ## Proposed review — draft only
 
-{{A concise, natural comment with the conclusion, strongest evidence or actionable concern, and next step. Match the audience. Exclude private identifiers/links and unpublished attack details from public drafts; when disclosure is uncertain, use minimal public-safe wording.}}
+{{A concise, natural comment with the conclusion and next step. For each finding raised, include the violated requirement and cite evidence from the reviewed revision or supplied patch. Match the audience. Exclude private identifiers/links and unpublished attack details from public drafts; when disclosure is uncertain, use minimal public-safe wording.}}

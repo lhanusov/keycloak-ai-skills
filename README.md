@@ -1,6 +1,6 @@
 # Keycloak AI Skills
 
-AI skills to investigate Keycloak issues and CI failures, assess security reports, implement fixes and features, review PRs and address feedback, backport changes, and maintain skill guidance. The current package version is `0.5.2`.
+AI skills to investigate Keycloak issues and CI failures, assess security reports, implement fixes and features, review PRs and address feedback, backport changes, and maintain skill guidance. The current package version is `0.5.3`.
 
 ## Quick start
 
@@ -137,7 +137,7 @@ Triage and `review-pr` produce drafts. `diagnose-ci` investigates by default and
 
 - [Installation and manual downloads](docs/installation.md)
 - [More examples and review modes](docs/usage.md)
-- [Release notes for 0.5.2](docs/releases/0.5.2.md)
+- [Release notes for 0.5.3](docs/releases/0.5.3.md)
 - [Agent guidance for contributors](AGENTS.md)
 - [Contributing, validation, and releases](CONTRIBUTING.md)
 
