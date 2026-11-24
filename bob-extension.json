@@ -1,6 +1,6 @@
 {
   "name": "keycloak-ai-skills",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "Reusable AI skills for Keycloak skill authoring and maintenance, bug and security triage, fixes and features, CI diagnosis, PR review and feedback, and backports.",
   "contextFileName": "BOB.md"
 }
